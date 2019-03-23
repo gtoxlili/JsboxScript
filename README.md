@@ -1,2 +1,2 @@
-# Jsbox仓库
-Write some scripts about Jsbox
+# Jsbox脚本仓库
+弃坑备份留个念
