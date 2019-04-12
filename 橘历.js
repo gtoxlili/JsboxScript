@@ -77,7 +77,7 @@ function fanjian(cc) {
 
 function ocr(base,dates) {
   $http.post({
-      url: "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate?access_token=24.25d8581fa72d1016e12cbcea4fcfa50f.2592000.1552695915.282335-9777217",
+      url: "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate?access_token=24.d4fa7a90e7ddb0a1b1a40ca27d1c383c.2592000.1557684213.282335-9777217",
        header: {"Accept": "*/*","Accept-Encoding": "br, gzip, deflate","Accept-Language": "zh-Hans-CN;q=1, zh-Hant-CN;q=0.9, en-CN;q=0.8, ja-JP;q=0.7, zh-Hant-HK;q=0.6","Connection": "keep-alive","Content-Length": "309750","Content-Type": "application/x-www-form-urlencoded","Host": "aip.baidubce.com","User-Agent": "BaiMiao/2.3.2 (iPhone; iOS 12.1.4; Scale/2.00)",},
     body: {
       "caps_original": "true",
