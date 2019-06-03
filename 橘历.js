@@ -72,17 +72,21 @@ function fanjian(cc) {
   return str;
 }
 
+async function fc(){
 
   var resp = await $http.get("https://ai.baidu.com/weapp/login?code=043TKpX706kVpG113fX704hEX70TKpXJ");
   var sessionKey = resp.data.data.sessionKey;
+  return sessionKey
+}
 
-
-function ocr(base,dates) {
+async function ocr(base,dates) {
   $http.post({
       url: "https://ai.baidu.com/weapp/rest/2.0/ocr/v1/accurate",
        header: {
          "Content-Type": "application/x-www-form-urlencoded",
-         "sessionKey": sessionKey},
+         "sessionKey": await fc()
+         
+         },
     body: {
       "vertexes_location": "true",
       "detect_direction": "true",
