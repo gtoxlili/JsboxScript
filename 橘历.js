@@ -45,11 +45,10 @@ $http.download({
   }.jpg`,
   showsProgress: false,
   handler: function(resp) {
-    console.info("gyy")
     var resized = resp.data.image.resized($size(483, 700))
-
-    var resizedImage = $text.base64Encode(resized.jpg(0.0));
-    ocr(resizedImage,dates);
+    
+        var resizedImage = $text.base64Encode(resized.jpg(0.0));
+        ocr(resizedImage,dates);
   }
 });}
 
@@ -74,15 +73,20 @@ function fanjian(cc) {
 }
 
 
+  var resp = await $http.get("https://ai.baidu.com/weapp/login?code=043TKpX706kVpG113fX704hEX70TKpXJ");
+  var sessionKey = resp.data.data.sessionKey;
+
 
 function ocr(base,dates) {
   $http.post({
-      url: "https://aip.baidubce.com/rest/2.0/ocr/v1/accurate?access_token=24.d4fa7a90e7ddb0a1b1a40ca27d1c383c.2592000.1557684213.282335-9777217",
-       header: {"Accept": "*/*","Accept-Encoding": "br, gzip, deflate","Accept-Language": "zh-Hans-CN;q=1, zh-Hant-CN;q=0.9, en-CN;q=0.8, ja-JP;q=0.7, zh-Hant-HK;q=0.6","Connection": "keep-alive","Content-Length": "309750","Content-Type": "application/x-www-form-urlencoded","Host": "aip.baidubce.com","User-Agent": "BaiMiao/2.3.2 (iPhone; iOS 12.1.4; Scale/2.00)",},
+      url: "https://ai.baidu.com/weapp/rest/2.0/ocr/v1/accurate",
+       header: {
+         "Content-Type": "application/x-www-form-urlencoded",
+         "sessionKey": sessionKey},
     body: {
-      "caps_original": "true",
+      "vertexes_location": "true",
       "detect_direction": "true",
-      "image": base
+      "image": base ,
     },
     handler: function(resp) {
 
